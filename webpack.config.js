@@ -17,7 +17,6 @@ module.exports = {
 
   module: {
     rules: [
-
         // we use babel-loader to load our jsx and tsx files
       {
         test: /\.(ts|js)x?$/,
@@ -25,7 +24,7 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         },
-      }/*,
+      },
       {
         test: /\.html$/,
         use: [
@@ -33,13 +32,13 @@ module.exports = {
             loader: "html-loader"
           }
         ]
-      }*/
+      }
     ]
   },
   plugins: [
-    new HtmlWebPackPlugin(/*
+    new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "./index.html"
-    }*/)
+    })
   ]
 };
