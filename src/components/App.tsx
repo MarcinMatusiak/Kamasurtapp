@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter } from "react-router-dom";
+
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 
@@ -9,11 +11,13 @@ export const Button = styled.button`
 
 const App: React.FC = () => {
     return (
-    <div>   
-        <ThemeProvider theme={theme}>
-            <Button>button</Button>
-        </ThemeProvider>   
-    </div>
+    <BrowserRouter>
+        <div>  
+            <ThemeProvider theme={theme}>
+                <Button>button</Button>
+            </ThemeProvider>   
+        </div>
+    </BrowserRouter>
 )};
 
 export default App;
