@@ -1,20 +1,18 @@
-import { EditorActions, SET_SELECTED_OBJECT, SET_SEX_POSITIONS } from './actions';
+import { EditorActions, SET_SELECTED_OBJECT, SET_SEX_POSITION, SET_POSITION } from './actions';
+import { EditorState, EditorObject } from 'store/types';
 
 
-export type Point = [ number, number ];
-
-export type EditorObject = {
-    location: Point;
-    rotation: number;
-    color: string;    
+const defaultState: EditorState = {
+    currentSexPosition: [
+        {
+            ID: 0,
+            color: 'black',
+            location: [100, 100],
+            rotation: 0,
+        }
+    ],
+    selectedObjectID: 0
 };
-
-export type EditorState = {
-    sexPositions?: EditorObject[];
-    selectedObjectID?: number;    
-};
-
-const defaultState: EditorState = {};
 
 export const editorReducer = (state: EditorState = defaultState, action: EditorActions): EditorState => {
     switch (action.type) {
@@ -23,11 +21,21 @@ export const editorReducer = (state: EditorState = defaultState, action: EditorA
                 ...state,
                 selectedObjectID: action.payload
             };
-        case SET_SEX_POSITIONS:
+        case SET_SEX_POSITION:
             return {
                 ...state,
-                sexPositions: action.payload
+                currentSexPosition: action.payload
             };
+        case SET_POSITION:
+            return {
+                ...state,
+                currentSexPosition: state.currentSexPosition.map(
+                    (obj: EditorObject) => 
+                        obj.ID !== action.payload?.id
+                        ? obj
+                        : { ...obj, location: action.payload?.position}
+                )
+            }
         default:
             return state;
     }

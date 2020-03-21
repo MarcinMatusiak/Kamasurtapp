@@ -1,23 +1,19 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from "react-router-dom";
-
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
+import { store } from '../store/store';
 import { theme } from './theme';
+import Editor from './Editor';
 
-export const Button = styled.button`
-    color: ${props =>  props.theme.colors.main};
-    border: ${props => props.theme.borderRadius} solid ${props => props.theme.colors.main};
-`;
-
-const App: React.FC = () => {
-    return (
+const App: React.FC = () => (
     <BrowserRouter>
-        <div>  
+        <Provider store={store}>  
             <ThemeProvider theme={theme}>
-                <Button>button</Button>
+                <Editor />
             </ThemeProvider>   
-        </div>
+        </Provider>
     </BrowserRouter>
-)};
+);
 
 export default App;
