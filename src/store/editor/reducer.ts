@@ -1,4 +1,4 @@
-import { EditorActions, SET_SELECTED_OBJECT, SET_SEX_POSITION, SET_POSITION } from './actions';
+import { EditorActions, SET_SELECTED_OBJECT, SET_SEX_POSITION, SET_LOCATION } from './actions';
 import { EditorState, EditorObject } from 'store/types';
 
 
@@ -26,14 +26,14 @@ export const editorReducer = (state: EditorState = defaultState, action: EditorA
                 ...state,
                 currentSexPosition: action.payload
             };
-        case SET_POSITION:
+        case SET_LOCATION:
             return {
                 ...state,
-                currentSexPosition: state.currentSexPosition.map(
+                currentSexPosition: state.currentSexPosition?.map(
                     (obj: EditorObject) => 
                         obj.ID !== action.payload?.id
                         ? obj
-                        : { ...obj, location: action.payload?.position}
+                        : { ...obj, location: action.payload?.location}
                 )
             }
         default:

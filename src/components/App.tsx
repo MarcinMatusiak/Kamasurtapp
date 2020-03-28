@@ -5,12 +5,13 @@ import { ThemeProvider } from 'styled-components';
 import { store } from '../store/store';
 import { theme } from './theme';
 import Editor from './Editor';
+import { Circle } from './Circle';
 
 const App: React.FC = () => (
     <BrowserRouter>
         <Provider store={store}>  
             <ThemeProvider theme={theme}>
-                <Editor />
+                <Circle idx={5} radius={0} />
             </ThemeProvider>   
         </Provider>
     </BrowserRouter>

@@ -2,17 +2,17 @@ import { FSA } from 'flux-standard-action';
 import { Point, EditorObject, SexPosition } from '../types';
 
 
-export const SET_POSITION = '@editor/SET_POSITION';
-type SetPositionAction = FSA<typeof SET_POSITION, {id: number; position: Point}>
+export const SET_LOCATION = '@editor/SET_LOCATION';
+type SetLocationAction = FSA<typeof SET_LOCATION, {id: number; location: Point}>
 
-export const setPosition = (id: number, position: Point): SetPositionAction => ({
-    type: SET_POSITION,
+export const setLocation = (id: number, location: Point): SetLocationAction => ({
+    type: SET_LOCATION,
     payload: {
         id,
-        position
+        location
     }
 })
-// TODO: change position to location
+
 export const SET_SELECTED_OBJECT = '@editor/SET_SELECTED_OBJECT';
 type SetSelectedObjectAction = FSA<typeof SET_SELECTED_OBJECT, number>;
 
@@ -31,4 +31,4 @@ export const setSexPositions = (sexPositions: SexPosition): SetSexPositionAction
 
 export type EditorActions = SetSelectedObjectAction 
     | SetSexPositionAction
-    | SetPositionAction;
+    | SetLocationAction;
