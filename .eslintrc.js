@@ -12,22 +12,34 @@ module.exports = {
     }
   },
   plugins: [
-    'react-hooks'
-    ],
+    'react-hooks',
+    'import'
+  ],
   rules: {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/prop-types': 'off',
     'react/jsx-no-useless-fragment': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off',
+    'eqeqeq': ['error', 'smart'],
     'indent': [
       1,
       4,
       {
-          'SwitchCase': 1
+        'SwitchCase': 1
       }
-  ],
-},
+    ],
+    'object-curly-spacing': ['error', 'always'],
+    'max-len': [
+      'error',
+      {
+          'code': 80,
+          'ignoreComments': true ,
+          'ignorePattern': '^import'
+      }
+    ],
+    'quotes': [1, 'single'],
+  },
   settings: {
     react: {
       version: 'detect' // Tells eslint-plugin-react to automatically detect the version of React to use

@@ -7,4 +7,13 @@ export const reducer = combineReducers({
 
 export type RootState = ReturnType<typeof reducer>;
 
-export const store = createStore(reducer);
+declare global {
+    interface Window {
+        __REDUX_DEVTOOLS_EXTENSION__: Function;
+    }
+}
+
+export const store = createStore(
+    reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__
+    && window.__REDUX_DEVTOOLS_EXTENSION__());
