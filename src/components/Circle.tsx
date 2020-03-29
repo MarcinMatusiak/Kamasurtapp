@@ -4,11 +4,10 @@ import { CircleConfig } from 'konva/types/shapes/Circle';
 import useSelectObject from './useSelectObject';
 
 type Props = {
-    idx: number;
+    ID: number;
 } & CircleConfig;
 
-export const Circle: React.FC<Props> = ({ idx, ...props }) => {
-    const selectObject = useSelectObject(idx);
-    console.log(selectObject);
+export const Circle: React.FC<Props> = ({ ID, ...props }) => {
+    const selectObject = useSelectObject(ID);
     return <KonvaCircle { ... props } onClick={selectObject}></KonvaCircle>
 }

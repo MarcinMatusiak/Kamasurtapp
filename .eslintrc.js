@@ -11,11 +11,15 @@ module.exports = {
       jsx: true // Allows for the parsing of JSX
     }
   },
+  plugins: [
+    'react-hooks'
+    ],
   rules: {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/prop-types': 'off',
     'react/jsx-no-useless-fragment': 'error',
+    '@typescript-eslint/explicit-function-return-type': 'off',
     'indent': [
       1,
       4,
@@ -23,7 +27,7 @@ module.exports = {
           'SwitchCase': 1
       }
   ],
-}
+},
   settings: {
     react: {
       version: 'detect' // Tells eslint-plugin-react to automatically detect the version of React to use

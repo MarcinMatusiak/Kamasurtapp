@@ -1,5 +1,5 @@
 import React from 'react';
-import {Line as KonvaLine, Transformer} from 'react-konva';
+import {Line as KonvaLine} from 'react-konva';
 import { LineConfig } from 'konva/types/shapes/Line';
 
 

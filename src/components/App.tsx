@@ -1,17 +1,16 @@
-import React from 'react';
+import * as React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from 'styled-components';
 import { store } from '../store/store';
 import { theme } from './theme';
-import Editor from './Editor';
-import { Circle } from './Circle';
+import { Editor } from './Editor';
 
 const App: React.FC = () => (
     <BrowserRouter>
         <Provider store={store}>  
             <ThemeProvider theme={theme}>
-                <Circle idx={5} radius={0} />
+                <Editor />
             </ThemeProvider>   
         </Provider>
     </BrowserRouter>
