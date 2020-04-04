@@ -6,7 +6,7 @@ const defaultState: EditorState = {
     currentSexPosition: [
         {
             ID: 0,
-            color: 'black',
+            color: '#310BCC',
             location: [100, 100],
             rotation: 0,
         }
@@ -32,10 +32,10 @@ export const editorReducer = (state: EditorState = defaultState, action: EditorA
                 currentSexPosition: state.currentSexPosition?.map(
                     (obj: EditorObject) => 
                         obj.ID !== action.payload?.id
-                        ? obj
-                        : { ...obj, location: action.payload?.location}
+                            ? obj
+                            : { ...obj, location: action.payload?.location }
                 )
-            }
+            };
         default:
             return state;
     }

@@ -9,5 +9,5 @@ type Props = {
 
 export const Circle: React.FC<Props> = ({ ID, ...props }) => {
     const selectObject = useSelectObject(ID);
-    return <KonvaCircle { ... props } onClick={selectObject}></KonvaCircle>
-}
+    return <KonvaCircle { ... props } onClick={selectObject}></KonvaCircle>;
+};

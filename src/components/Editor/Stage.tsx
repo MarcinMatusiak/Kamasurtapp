@@ -20,5 +20,5 @@ export const Stage: React.FC = ({ children, ...rest }) => {
                 </KonvaStage>
             )}
         </ReactReduxContext.Consumer>
-    )
-}
+    );
+};

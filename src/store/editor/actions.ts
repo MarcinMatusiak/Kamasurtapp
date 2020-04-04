@@ -1,5 +1,5 @@
 import { FSA } from 'flux-standard-action';
-import { Point, EditorObject, SexPosition } from '../types';
+import { Point, SexPosition } from '../types';
 
 
 export const SET_LOCATION = '@editor/SET_LOCATION';
@@ -11,7 +11,7 @@ export const setLocation = (id: number, location: Point): SetLocationAction => (
         id,
         location
     }
-})
+});
 
 export const SET_SELECTED_OBJECT = '@editor/SET_SELECTED_OBJECT';
 type SetSelectedObjectAction = FSA<typeof SET_SELECTED_OBJECT, number>;

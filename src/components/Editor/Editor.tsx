@@ -1,6 +1,6 @@
-import React from 'react';
-import { Transformer } from 'react-konva';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Transformer } from 'react-konva';
 import { setLocation } from '../../store/editor/actions';
 import { currentSexPositionsSelector } from '../../store/editor/selectors';
 import { Circle } from '../Circle';
@@ -13,6 +13,8 @@ import { Stage } from './Stage';
 export const Editor = () => {
     const dispatch = useDispatch();
     const currentPosition = useSelector(currentSexPositionsSelector);
+    const [isDragging, setIsDragging] = useState(false);
+    
 
     return (
         <Stage>
@@ -26,11 +28,11 @@ export const Editor = () => {
                     x={x}
                     y={y}
                     draggable
-                    fill={theme.colors.main} /* isDragging ? theme.colors.main : theme.colors.secondary*/ //CHANGE COLOR TO PINK??
-                    //onDragStart={() => { isDragging: true}}
+                    fill={isDragging ? 'red' : color} /* */ //CHANGE COLOR TO PINK??
+                    onDragStart={() => {setIsDragging(true)}}
                     onDragEnd={(e: any) => {
-                        dispatch(setLocation(ID, [e.target.x(), e.target.y()]))
-                        //isDragging: false
+                        dispatch(setLocation(ID, [e.target.x(), e.target.y()]));
+                        setIsDragging(false);
                     }}
                 />
             ))
@@ -38,8 +40,13 @@ export const Editor = () => {
             <Line
                 points={[100,100,100,300]}
                 draggable
-                stroke={theme.colors.main}
-                strokeWidth={10}>
+                stroke={isDragging ? 'red' : theme.colors.main} /* */ //CHANGE COLOR TO PINK??
+                strokeWidth={10}
+                onDragStart={() => {setIsDragging(true)}}
+                onDragEnd={(/*e: any*/) => {
+                    //dispatch(setLocation(ID, [e.target.x(), e.target.y()]));
+                    setIsDragging(false);
+                }}>
             </Line>
             <Transformer
                 resizeEnabled={false}
@@ -47,4 +54,4 @@ export const Editor = () => {
             </Transformer>
         </Stage>
     );
-}
+};

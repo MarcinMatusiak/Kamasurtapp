@@ -25,13 +25,11 @@ module.exports = {
     'indent': [
       1,
       4,
-      {
-        'SwitchCase': 1
-      }
+      { 'SwitchCase': 1 }
     ],
     'object-curly-spacing': ['error', 'always'],
     'max-len': [
-      'error',
+      'warn',
       {
           'code': 80,
           'ignoreComments': true ,
@@ -39,6 +37,7 @@ module.exports = {
       }
     ],
     'quotes': [1, 'single'],
+    'semi': ["error", "always", { "omitLastInOneLineBlock": true}]
   },
   settings: {
     react: {
